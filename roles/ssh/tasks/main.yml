@@ -1,0 +1,22 @@
+---
+# tasks file for roles/ssh
+
+- name: Copy ssh id
+  become: true
+  ansible.posix.authorized_key:
+    user: "{{  item.user }}"
+    key: "{{  lookup('file', '{{ item.dest }}/.ssh/authorized_keys') }}"
+    exclusive: true
+  loop:
+    # - {user: root, dest: /root}
+    - {user: nomad, dest: /home/nomad}
+    - {user: ansible, dest: /home/ansible}
+
+
+- name: Copy sshd_config file
+  ansible.builtin.copy:
+    src: sshd_config
+    dest: /etc/ssh/sshd_conf
+    owner: root
+    group: root
+    mode: '0644'

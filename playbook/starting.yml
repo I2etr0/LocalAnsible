@@ -1,0 +1,10 @@
+---
+# Плейбук для первоначальной подготовки серверов сразу же после установки
+
+- name: Add user and add ssh keys
+  hosts: new
+  become: true
+
+  roles:
+    - add_user
+    - ssh

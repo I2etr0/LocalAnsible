@@ -1,0 +1,6 @@
+---
+# vars file for roles/add_user
+
+ansible_user: nomad
+ansible_ssh_pass: Beroslav43
+ansible_become_password: Beroslav43

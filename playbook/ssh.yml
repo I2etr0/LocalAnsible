@@ -1,0 +1,7 @@
+---
+- name: Add ssh keys
+  hosts: all
+  become: true
+
+  roles:
+    - ssh

@@ -1,0 +1,7 @@
+---
+- name: Add user for ansible
+  hosts: all
+  become: true
+
+  roles:
+    - add_user

@@ -1,0 +1,13 @@
+---
+# tasks file for roles/add_user
+
+- name: Add the user 'ansible' with a bash shell, appending the group 'sudo' to the user's groups
+  ansible.builtin.user:
+    name: ansible
+    comment: Ansible user
+    shell: /bin/bash
+    groups: sudo
+    append: true
+    generate_ssh_key: true
+    ssh_key_bits: 2048
+    ssh_key_file: .ssh/id_rsa
